@@ -16,5 +16,14 @@ public class HotelReservation
 
 class Reservation
 {
+	int id;
+    String guestName;
+    int roomNumber;
+    int nights;
+    double price;
 	
+	public Reservation(int id, String guestName, int roomNumber, int nights, double price)
+	{
+		
+	}
 }
