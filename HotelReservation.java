@@ -24,6 +24,10 @@ class Reservation
 	
 	public Reservation(int id, String guestName, int roomNumber, int nights, double price)
 	{
-		
+		this.id = id;
+        this.guestName = guestName;
+        this.roomNumber = roomNumber;
+        this.nights = nights;
+        this.price = price;
 	}
 }
