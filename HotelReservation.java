@@ -59,6 +59,25 @@ public class HotelReservation
         System.out.println("Reservation ID: " + reservation.id);
         System.out.println("Total price: $" + reservation.price);
     }
+	
+	private static void viewReservations() 
+	{
+        if (reservations.isEmpty()) 
+		{
+            System.out.println("\nNo reservations found.");
+            return;
+        }
+
+        System.out.println("\nAll Reservations:");
+        for (Reservation r : reservations) {
+            System.out.println("ID: " + r.id);
+            System.out.println("Guest: " + r.guestName);
+            System.out.println("Room: " + r.roomNumber);
+            System.out.println("Nights: " + r.nights);
+            System.out.println("Price: $" + r.price);
+            System.out.println("-------------------");
+        }
+    }
 }
 
 class Reservation
