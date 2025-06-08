@@ -12,6 +12,53 @@ public class HotelReservation
             }
         }
     }
+	
+	private static void makeReservation() 
+	{
+        System.out.print("\nEnter room number: ");
+        int roomNumber = scanner.nextInt();
+        scanner.nextLine(); 
+
+        if (!rooms.containsKey(roomNumber))
+		{
+            System.out.println("Invalid room number.");
+            return;
+        }
+
+        if (!rooms.get(roomNumber)) 
+		{
+            System.out.println("Room " + roomNumber + " is already booked.");
+            return;
+        }
+
+        System.out.print("Enter guest name: ");
+        String guestName = scanner.nextLine();
+
+
+        System.out.print("Enter number of nights: ");
+        int nights = scanner.nextInt();
+        scanner.nextLine(); 
+
+        double price = nights * 100.0;
+
+        
+        rooms.put(roomNumber, false);
+
+        
+        Reservation reservation = new Reservation(
+            nextReservationId++,
+            guestName,
+            roomNumber,
+            nights,
+            price
+        );
+
+        reservations.add(reservation);
+
+        System.out.println("\nReservation successful!");
+        System.out.println("Reservation ID: " + reservation.id);
+        System.out.println("Total price: $" + reservation.price);
+    }
 }
 
 class Reservation
