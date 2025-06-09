@@ -3,6 +3,48 @@ import java.util.*;
 public class HotelReservation
 {
 	private static Map<Integer, Boolean> rooms = new HashMap<>();
+	private static List<Reservation> reservations = new ArrayList<>();
+    private static int nextReservationId = 1;
+	private static Scanner scanner = new Scanner(System.in);
+	
+	public static void main(String[] args)
+	{
+		for (int i = 1; i <= 10; i++) 
+		{
+            rooms.put(i, true); 
+        }
+		
+		while (true)
+		{
+			System.out.println("\nSimple Hotel Reservation System");
+            System.out.println("1. View Available Rooms");
+            System.out.println("2. Make Reservation");
+            System.out.println("3. View Reservations");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+			
+			int choice = scanner.nextInt();
+            scanner.nextLine(); 
+			
+			switch (choice)
+			{
+				case 1:
+                    viewAvailableRooms();
+                    break;
+                case 2:
+                    makeReservation();
+                    break;
+                case 3:
+                    viewReservations();
+                    break;
+                case 4:
+                    System.out.println("Thank you for using our system!");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+			}
+		}
+	}
 	
 	private static void viewAvailableRooms() {
         System.out.println("\nAvailable Rooms:");
